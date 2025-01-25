@@ -37,7 +37,7 @@ class LoginScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextInputField(controller: _emailController, 
-              LabelText: 'Email',
+              labelText: 'Email',
               
                icon: Icons.email),
             ),
@@ -46,10 +46,10 @@ class LoginScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               margin: const EdgeInsets.only(left: 20, right: 20),
               child: TextInputField(controller: _passwordController, 
-              LabelText: 'Password',
+              labelText: 'Password',
               
                icon: Icons.lock,
-               isObsecure: true,),
+               isObscure: true,),
             ),
             const SizedBox(height: 30,),
             Container(
@@ -60,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                 borderRadius: const BorderRadius.all(Radius.circular(5),)
               ),
               child:  InkWell(
-                onTap: ()=> authController.LoginUser(
+                onTap: ()=> authController.loginUser(
                   _emailController.text,
                  _passwordController.text,
                  ),
@@ -82,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                   fontSize: 20,
                 ),),
                 InkWell(
-                   onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SignUpScreen()),),
+                   onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=> SignupScreen()),),
                   child: Text('Reg',
                   style: TextStyle(
                     fontSize: 20,

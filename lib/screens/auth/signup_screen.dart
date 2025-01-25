@@ -4,138 +4,154 @@ import 'package:stream_inc/screens/auth/login_screen.dart';
 import '../../constants.dart';
 import '../../views/widgets/text_input_field.dart';
 
-class SignUpScreen extends StatelessWidget {
-  SignUpScreen({super.key});
-  final TextEditingController _usernameController = TextEditingController();
+class SignupScreen extends StatelessWidget {
+  SignupScreen({Key? key}) : super(key: key);
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      alignment: Alignment.center,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Tik Tok ',
-            style: TextStyle(
-              fontSize: 35,
-              color: buttonColor,
-              fontWeight: FontWeight.w900,
-            ),
-          ),
-          const Text(
-            'Register ',
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.w700,
-            ),
-          ),
-          Stack(
-            children: [
-              const CircleAvatar(
-                radius: 64,
-                backgroundImage: NetworkImage(''),
-                backgroundColor: Color.fromRGBO(33, 150, 243, 1),
+      body: Container(
+        alignment: Alignment.center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Tiktok Clone',
+              style: TextStyle(
+                fontSize: 35,
+                color: buttonColor,
+                fontWeight: FontWeight.w900,
               ),
-              Positioned(
-                bottom: -10,
-                left: 80,
-                child: IconButton(
-                  onPressed: () => authController.profilePhoto,
-                  icon: Icon(Icons.add_a_photo),
-                ),
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: TextInputField(
-                controller: _usernameController,
-                LabelText: 'Username',
-                icon: Icons.person),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: TextInputField(
-                controller: _emailController,
-                LabelText: 'Email',
-                icon: Icons.email),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.only(left: 20, right: 20),
-            child: TextInputField(
-              controller: _passwordController,
-              LabelText: 'Password',
-              icon: Icons.lock,
-              isObsecure: true,
             ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width - 40,
-            height: 50,
-            decoration: BoxDecoration(
+            const Text(
+              'Register',
+              style: TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Stack(
+              children: [
+                const CircleAvatar(
+                  radius: 64,
+                  backgroundImage: NetworkImage(
+                      'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png'),
+                  backgroundColor: Colors.black,
+                ),
+                Positioned(
+                  bottom: -10,
+                  left: 80,
+                  child: IconButton(
+                    onPressed: () => authController.pickImage(),
+                    icon: const Icon(
+                      Icons.add_a_photo,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: TextInputField(
+                controller: _usernameController,
+                labelText: 'Username',
+                icon: Icons.person,
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: TextInputField(
+                controller: _emailController,
+                labelText: 'Email',
+                icon: Icons.email,
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: TextInputField(
+                controller: _passwordController,
+                labelText: 'Password',
+                icon: Icons.lock,
+                isObscure: true,
+              ),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width - 40,
+              height: 50,
+              decoration: BoxDecoration(
                 color: buttonColor,
                 borderRadius: const BorderRadius.all(
                   Radius.circular(5),
-                )),
-            child: InkWell(
-                onTap: () => authController.registerUser(
-                      _usernameController.text,
-                      _emailController.text,
-                      _passwordController.text,
-                      authController.profilePhoto,
-                    ),
-                child: const Center(
-                    child: Text(
-                  'Register',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                ))),
-          ),
-          const SizedBox(
-            height: 15.0,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Already  have an account?',
-                style: TextStyle(
-                  fontSize: 20,
                 ),
               ),
-              InkWell(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context)=> LoginScreen() )),
-                child: Text(
-                  'Log ',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: buttonColor,
+              child: InkWell(
+                onTap: () => authController.registerUser(
+                  _usernameController.text,
+                  _emailController.text,
+                  _passwordController.text,
+                 authController.profilePhoto,
+                ),
+                child: const Center(
+                  child: Text(
+                    'Register',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
-              )
-            ],
-          )
-        ],
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Already have an account? ',
+                  style: TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
+                InkWell(
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  ),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(fontSize: 20, color: buttonColor),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
