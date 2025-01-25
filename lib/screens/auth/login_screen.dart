@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Tik Tok ',
+            Text('Stream_Inc',
             style: TextStyle(
               fontSize: 35,
               color: buttonColor,

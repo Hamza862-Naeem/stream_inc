@@ -20,7 +20,7 @@ class SignupScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Tiktok Clone',
+              'Stream_Inc',
               style: TextStyle(
                 fontSize: 35,
                 color: buttonColor,
