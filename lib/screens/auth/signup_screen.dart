@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:stream_inc/screens/auth/login_screen.dart';
 
 import '../../constants.dart';
+import '../../controller/auth_controller.dart';
 import '../../views/widgets/text_input_field.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -10,6 +14,7 @@ class SignupScreen extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
+  final AuthController authController = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,7 @@ class SignupScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Stream_Inc',
+                'Tiktok Clone',
                 style: TextStyle(
                   fontSize: 35,
                   color: buttonColor,
@@ -41,20 +46,22 @@ class SignupScreen extends StatelessWidget {
               ),
               Stack(
                 children: [
-                  const CircleAvatar(
-                    radius: 64,
-                    backgroundImage: NetworkImage(
-                        ''),
-                    backgroundColor: Colors.black,
-                  ),
+                  Obx(() {
+                    File? image = authController.profilePhoto;
+                    return CircleAvatar(
+                      radius: 64,
+                      backgroundImage: image != null ? FileImage(image) : null,
+                      backgroundColor: Colors.grey[300],
+                    );
+                  }),
                   Positioned(
                     bottom: -10,
                     left: 80,
                     child: IconButton(
-                      onPressed: () => authController.pickImage(),
-                      icon: const Icon(
-                        Icons.add_a_photo,
-                      ),
+                      onPressed: () async {
+                        await authController.pickImage();
+                      },
+                      icon: const Icon(Icons.add_a_photo),
                     ),
                   ),
                 ],
@@ -110,9 +117,9 @@ class SignupScreen extends StatelessWidget {
                 ),
                 child: InkWell(
                   onTap: () => authController.registerUser(
-                    _usernameController.text,
-                    _emailController.text,
-                    _passwordController.text,
+                    _usernameController.text.trim(),
+                    _emailController.text.trim(),
+                    _passwordController.text.trim(),
                     authController.profilePhoto,
                   ),
                   child: const Center(
@@ -135,7 +142,7 @@ class SignupScreen extends StatelessWidget {
                   const Text(
                     'Already have an account? ',
                     style: TextStyle(
-                      fontSize: 17,
+                      fontSize: 20,
                     ),
                   ),
                   InkWell(

@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'dart:math';
 
@@ -15,7 +14,7 @@ import 'package:stream_inc/screens/auth/login_screen.dart';
 class AuthController extends GetxController {
   static AuthController instance = Get.find();
   late Rx<User?> _user;
-  late Rx<File?> _pickedImage;
+  Rx<File?> _pickedImage = Rx<File?>(null); // Initialize as null
 
   File? get profilePhoto => _pickedImage.value;
   User get user => _user.value!;
@@ -32,11 +31,11 @@ class AuthController extends GetxController {
     if (user == null) {
       Get.offAll(() => LoginScreen());
     } else {
-      Get.offAll(() =>  HomeScreen());
+      Get.offAll(() => HomeScreen());
     }
   }
 
- void pickImage() async {
+  Future pickImage() async {
     print("Attempting to pick an image.");
     final pickedImage =
         await ImagePicker().pickImage(source: ImageSource.gallery);
@@ -44,13 +43,12 @@ class AuthController extends GetxController {
       print("Image selected: ${pickedImage.path}");
       Get.snackbar(
           'Profile Picture', 'You have successfully selected your profile picture!');
-      _pickedImage = Rx<File?>(File(pickedImage.path));
+      _pickedImage.value = File(pickedImage.path); // Use .value to update the Rx<File?>
     } else {
       print("No image selected.");
     }
   }
 
-  // upload to firebase storage
   Future<String> _uploadToStorage(File image) async {
     print("Uploading image to Firebase Storage...");
     Reference ref = firebaseStorage
@@ -65,9 +63,7 @@ class AuthController extends GetxController {
     return downloadUrl;
   }
 
-
-  // registering the user
-   void registerUser(
+  void registerUser(
       String username, String email, String password, File? image) async {
     try {
       print("Attempting to register user: $email");
@@ -112,7 +108,7 @@ class AuthController extends GetxController {
     }
   }
 
- void loginUser(String email, String password) async {
+  void loginUser(String email, String password) async {
     try {
       print("Attempting to log in user: $email");
       if (email.isNotEmpty && password.isNotEmpty) {

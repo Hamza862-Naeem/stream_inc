@@ -44,9 +44,13 @@ final Controller.SearchController searchController = Get.put(Controller.SearchCo
               return InkWell(
                 onTap: ()=> Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfileScreen(uid: user.uid,),),),
                 child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage: NetworkImage(user.ProfilePhoto),
-                  ),
+                  leading:CircleAvatar(
+  backgroundImage: NetworkImage(user.ProfilePhoto),
+  onBackgroundImageError: (exception, stackTrace) {
+    // You could also use a default avatar if the network image fails.
+  },
+),
+
                   title: Text(user.name,style: TextStyle(fontSize: 18.0, color: Colors.white),),
                 ),
                );
