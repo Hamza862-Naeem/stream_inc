@@ -41,46 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAWmosCEcLRr4Akz9QgozvVJj1O84EYm40',
-    appId: '1:719619879988:web:2b674457347f5ea6b00661',
-    messagingSenderId: '719619879988',
-    projectId: 'tik-tok-stream-inc',
-    authDomain: 'tik-tok-stream-inc.firebaseapp.com',
-    storageBucket: 'tik-tok-stream-inc.firebasestorage.app',
+    apiKey: 'AIzaSyAv0zfdDpRs-WPDjZ8PczijCtHSKFcSdRU',
+    appId: '1:190337383595:web:d82dde2232617636348bee',
+    messagingSenderId: '190337383595',
+    projectId: 'tik-tok-stream-inc-f2a77',
+    authDomain: 'tik-tok-stream-inc-f2a77.firebaseapp.com',
+    storageBucket: 'tik-tok-stream-inc-f2a77.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCihjlIl5a2qDWr0owoQ66d6YDENvnSGc0',
-    appId: '1:719619879988:android:a257e70e0db8f35cb00661',
-    messagingSenderId: '719619879988',
-    projectId: 'tik-tok-stream-inc',
-    storageBucket: 'tik-tok-stream-inc.firebasestorage.app',
+    apiKey: 'AIzaSyDBGtDkQhaHAyafOguXag6bEszlbIj8PZ0',
+    appId: '1:190337383595:android:5e685ba4c9e4bc5c348bee',
+    messagingSenderId: '190337383595',
+    projectId: 'tik-tok-stream-inc-f2a77',
+    storageBucket: 'tik-tok-stream-inc-f2a77.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCoCvVhC7KcxpCHZck5RqmKaKp_PfB3tK0',
-    appId: '1:719619879988:ios:bb9daf08917fec3bb00661',
-    messagingSenderId: '719619879988',
-    projectId: 'tik-tok-stream-inc',
-    storageBucket: 'tik-tok-stream-inc.firebasestorage.app',
+    apiKey: 'AIzaSyAgoTyvUpt316SK_VmcpwibCfsf8nyqoVo',
+    appId: '1:190337383595:ios:759c3f42040c00b5348bee',
+    messagingSenderId: '190337383595',
+    projectId: 'tik-tok-stream-inc-f2a77',
+    storageBucket: 'tik-tok-stream-inc-f2a77.firebasestorage.app',
     iosBundleId: 'com.example.streamInc',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCoCvVhC7KcxpCHZck5RqmKaKp_PfB3tK0',
-    appId: '1:719619879988:ios:bb9daf08917fec3bb00661',
-    messagingSenderId: '719619879988',
-    projectId: 'tik-tok-stream-inc',
-    storageBucket: 'tik-tok-stream-inc.firebasestorage.app',
+    apiKey: 'AIzaSyAgoTyvUpt316SK_VmcpwibCfsf8nyqoVo',
+    appId: '1:190337383595:ios:759c3f42040c00b5348bee',
+    messagingSenderId: '190337383595',
+    projectId: 'tik-tok-stream-inc-f2a77',
+    storageBucket: 'tik-tok-stream-inc-f2a77.firebasestorage.app',
     iosBundleId: 'com.example.streamInc',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAWmosCEcLRr4Akz9QgozvVJj1O84EYm40',
-    appId: '1:719619879988:web:5bba7e9b10f424fdb00661',
-    messagingSenderId: '719619879988',
-    projectId: 'tik-tok-stream-inc',
-    authDomain: 'tik-tok-stream-inc.firebaseapp.com',
-    storageBucket: 'tik-tok-stream-inc.firebasestorage.app',
+    apiKey: 'AIzaSyAv0zfdDpRs-WPDjZ8PczijCtHSKFcSdRU',
+    appId: '1:190337383595:web:eed4589a99625b60348bee',
+    messagingSenderId: '190337383595',
+    projectId: 'tik-tok-stream-inc-f2a77',
+    authDomain: 'tik-tok-stream-inc-f2a77.firebaseapp.com',
+    storageBucket: 'tik-tok-stream-inc-f2a77.firebasestorage.app',
   );
+
 }
