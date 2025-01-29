@@ -11,13 +11,13 @@ import '../constants.dart';
 class UploadVideoController extends GetxController {
   
   // Compress video if necessary
-  Future<File> _compressVideo(String videoPath) async {
+  Future<File?> _compressVideo(String videoPath) async {
     try {
       final compressedVideo = await VideoCompress.compressVideo(
         videoPath,
         quality: VideoQuality.MediumQuality,
       );
-      return compressedVideo!.file!;
+      return compressedVideo?.file!;
     } catch (e) {
       throw 'Error compressing video: $e';
     }
@@ -27,9 +27,9 @@ class UploadVideoController extends GetxController {
   Future<String> _uploadVideoToStorage(String videoId, String videoPath) async {
     try {
       // Compress the video before uploading
-      File videoFile = await _compressVideo(videoPath);
+      File? videoFile = await _compressVideo(videoPath);
       Reference ref = firebaseStorage.ref().child('videos').child('$videoId.mp4');
-      UploadTask uploadTask = ref.putFile(videoFile);
+      UploadTask uploadTask = ref.putFile(videoFile!);
       TaskSnapshot snap = await uploadTask;
       return await snap.ref.getDownloadURL();
     } catch (e) {
@@ -41,7 +41,7 @@ class UploadVideoController extends GetxController {
   Future<File> _getThumbnail(String videoPath) async {
     try {
       final thumbnail = await VideoCompress.getFileThumbnail(videoPath);
-      return thumbnail!;
+      return thumbnail;
     } catch (e) {
       throw 'Error getting thumbnail: $e';
     }

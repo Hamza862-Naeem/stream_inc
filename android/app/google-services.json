@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "190337383595",
-    "project_id": "tik-tok-stream-inc-f2a77",
-    "storage_bucket": "tik-tok-stream-inc-f2a77.firebasestorage.app"
+    "project_number": "472841037255",
+    "project_id": "stream-inc-tik-tok-3b95c",
+    "storage_bucket": "stream-inc-tik-tok-3b95c.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:190337383595:android:5e685ba4c9e4bc5c348bee",
+        "mobilesdk_app_id": "1:472841037255:android:1062b64d637ea6eae4a5e2",
         "android_client_info": {
           "package_name": "com.example.stream_inc"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDBGtDkQhaHAyafOguXag6bEszlbIj8PZ0"
+          "current_key": "AIzaSyB1sCrcMgDEImBT4RDlq_EcKBjmmKvgjg4"
         }
       ],
       "services": {

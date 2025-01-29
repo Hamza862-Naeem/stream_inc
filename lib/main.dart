@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stream_inc/constants.dart';
 import 'package:stream_inc/controller/auth_controller.dart';
-import 'package:stream_inc/screens/auth/home_screen.dart';
-import 'package:stream_inc/screens/auth/login_screen.dart';
 import 'package:stream_inc/screens/auth/signup_screen.dart';
 
 import 'firebase_options.dart';
